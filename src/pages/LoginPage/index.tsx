@@ -16,14 +16,11 @@ import {
   Button,
 } from "../sheredComponents";
 import logo from "../../../public/images/logo.png";
-import bgImage from "../../../public/images/bg-signup.png";
-import {
-  MdOutlineDriveFileRenameOutline,
-  MdOutlineEmail,
-} from "react-icons/md";
+import bgImage from "../../../public/images/bg-login.png";
+import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 
-export const SignupPage = () => {
+export const LoginPage = () => {
   return (
     <FlexContainer>
       <LeftSide className="left-side">
@@ -32,22 +29,14 @@ export const SignupPage = () => {
         </LogoContainer>
         <Container>
           <TextContainer>
-            <SubTitle>Comece gratuitamente</SubTitle>
-            <Title>Crie sua conta</Title>
+            <SubTitle>Bem vindo de volta!</SubTitle>
+            <Title>Faça o Login</Title>
           </TextContainer>
           <IsMemberContainer>
-            <IsMemberSpan>Já tem uma conta?</IsMemberSpan>
-            <LinkToPage path="/" linkName="Login" />
+            <IsMemberSpan>Não tem uma conta?</IsMemberSpan>
+            <LinkToPage path="/signup" linkName="Cadastre-se"/>
           </IsMemberContainer>
           <FormContainer>
-            <ImputContainer>
-              <Input
-                className="focus:outline-blue"
-                type={"text"}
-                placeholder={"Digite o seu nome..."}
-              />
-              <MdOutlineDriveFileRenameOutline size={28} />
-            </ImputContainer>
             <ImputContainer>
               <Input
                 className="focus:outline-blue"
@@ -60,11 +49,11 @@ export const SignupPage = () => {
               <Input
                 className="focus:outline-blue"
                 type={"password"}
-                placeholder={"Digite uma senha..."}
+                placeholder={"Digite sua senha..."}
               />
               <RiLockPasswordLine size={28} />
             </ImputContainer>
-            <Button>Cadastre-se</Button>
+            <Button>Entrar</Button>
           </FormContainer>
         </Container>
       </LeftSide>

@@ -1,18 +1,24 @@
 import tw from "tailwind-styled-components";
+import Link from "next/link";
+
+export const LinkToPage = (props) => {
+  return (
+    <Link className="text-[#60a5fa] text-lg font-normal" href={props.path}>{props.linkName}</Link>
+  )
+}
 
 export const FlexContainer = tw.main`
   flex
 `;
 
 export const LeftSide = tw.div`
-w-1/2
+  w-1/2
   pt-6
   pl-10
 `;
 
 export const RightSide = tw.div`
   w-1/2
-  p-12
   h-screen
 `;
 
@@ -21,11 +27,11 @@ export const LogoContainer = tw.div`
   max-w-[8rem]
 `;
 
-export const SignupContainer = tw.main`
+export const Container = tw.main`
   w-full
-  pl-6
-  pr-8
-  mt-28
+  pl-12
+  pr-6
+  mt-20
 `;
 
 export const TextContainer = tw.div`
@@ -73,7 +79,7 @@ export const FormContainer = tw.div`
 export const ImputContainer = tw.div`
   w-full
   flex
-items-baseline
+  items-baseline
 `;
 
 export const Input = tw.input`
@@ -88,7 +94,7 @@ export const Input = tw.input`
   mr-2
 `;
 
-export const SignpupBtn = tw.button`
+export const Button = tw.button`
   w-full
   p-4
   font-bold
