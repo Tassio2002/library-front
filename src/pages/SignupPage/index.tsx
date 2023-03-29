@@ -22,6 +22,7 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { signupRequest } from "../../services/apiServices";
 
 export const SignupPage = () => {
   return (
@@ -64,7 +65,7 @@ export const SignupPage = () => {
               />
               <RiLockPasswordLine size={28} />
             </ImputContainer>
-            <Button>Cadastre-se</Button>
+            <Button onClick={signupRequest}>Cadastre-se</Button>
           </FormContainer>
         </Container>
       </LeftSide>

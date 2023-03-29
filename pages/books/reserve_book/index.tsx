@@ -1,4 +1,5 @@
+import { BooksPage } from "../../../src/pages/sheredComponents/ContainerMenu";
 
 export default function index () {
-  return <h1>Books Reserve</h1>
+  return <BooksPage menuTitle="Busque Livros" mainTitle="Livros dispóniveis"/>
 }

@@ -12,7 +12,7 @@ export const LinkToPage = (props) => {
   );
 };
 
-export const Container = tw.div`
+export const PageContainer = tw.div`
   w-screen
   flex
   overflow-x-hidden
@@ -28,7 +28,7 @@ export const MaiContainer = tw.main`
   w-4/5
 `;
 
-export const LogoContainer = tw.div`
+export const MenuLogoContainer = tw.div`
   w-full
   max-w-[8rem]
   mt-4
