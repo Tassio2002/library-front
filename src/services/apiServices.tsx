@@ -12,3 +12,15 @@ export async function signupRequest(name: string, email: string, password: strin
         console.log(error)
     }
 }
+
+export async function loginRequest(email: string, password: string) {
+    try {
+        const res = await axios.post('http://localhost:3333/login', {
+            email: email,
+            password: password,
+        })
+        console.log(res)
+    } catch (error) {
+        console.log(error)
+    }
+}

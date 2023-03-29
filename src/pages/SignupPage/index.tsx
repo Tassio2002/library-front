@@ -26,12 +26,12 @@ import { signupRequest } from "../../services/apiServices";
 import { useState } from "react";
 
 export const SignupPage = () => {
-  const [name, setName] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const request = () => {
-    signupRequest(name, email, password)
-  }
+    signupRequest(name, email, password);
+  };
   return (
     <FlexContainer>
       <LeftSide className="left-side">
@@ -53,7 +53,7 @@ export const SignupPage = () => {
                 className="focus:outline-blue"
                 type={"text"}
                 placeholder={"Digite o seu nome..."}
-                onChange={event => setName(event.target.value)}
+                onChange={(event) => setName(event.target.value)}
               />
               <MdOutlineDriveFileRenameOutline size={28} />
             </ImputContainer>
@@ -62,7 +62,7 @@ export const SignupPage = () => {
                 className="focus:outline-blue"
                 type={"email"}
                 placeholder={"Digite seu email..."}
-                onChange={event => setEmail(event.target.value)}
+                onChange={(event) => setEmail(event.target.value)}
               />
               <MdOutlineEmail size={28} />
             </ImputContainer>
@@ -71,7 +71,7 @@ export const SignupPage = () => {
                 className="focus:outline-blue"
                 type={"password"}
                 placeholder={"Digite uma senha..."}
-                onChange={event => setPassword(event.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
               />
               <RiLockPasswordLine size={28} />
             </ImputContainer>
