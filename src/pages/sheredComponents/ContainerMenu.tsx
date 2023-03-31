@@ -14,9 +14,6 @@ import {
   HeaderButton,
   MainTitle,
   BooksContaner,
-  BookBox,
-  BookCover,
-  BookTitle,
 } from "./index";
 import logo from "../../../public/images/logo.png";
 import { RiBook2Line } from "react-icons/ri";
@@ -25,8 +22,32 @@ import { BsSearch } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 import Link from "next/link";
-// Este é o componente de menu, usar como shared componnet e passar props
+import Book from "../components/Book";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { mountUrl } from "../../services/apiServices";
+
 export const BooksPage = (props: any) => {
+  const [books, setBooks] = useState([])
+
+  useEffect(() => {
+    async function getAllBooks() {
+      try {
+        const res = await axios.get(mountUrl("book/all_books"), {
+          headers: {
+            Authorization:
+              `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzUsImlhdCI6MTY4MDIyNzQ3MiwiZXhwIjoxNjgwMjM0NjcyfQ.2VMqe7HSFv1GN3a7VxFw-_hICT-SSV_PFn_-ZEZfCvM`,
+          },
+        });
+        const data = res.data.books
+        setBooks(data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getAllBooks();
+  }, []);
+
   return (
     <PageContainer>
       <AsideContainer>
@@ -74,62 +95,14 @@ export const BooksPage = (props: any) => {
         </Header>
         <MainTitle>{props.mainTitle}</MainTitle>
         <BooksContaner>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
-          <BookBox>
-            <BookCover
-              src="https://m.media-amazon.com/images/I/515rjH7yikL.jpg"
-              alt="book"
-            />
-            <BookTitle>O milagre da manhã</BookTitle>
-          </BookBox>
+          {books.map(book => (
+            <Book
+            key={book.id}
+            cover={book.image_url}
+            alternativeText={book.title}
+            bookTitle={book.title}
+          />
+          ))}
         </BooksContaner>
       </MaiContainer>
     </PageContainer>

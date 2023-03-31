@@ -207,23 +207,3 @@ export const BooksContaner = tw.div`
   flex
   flex-wrap
 `;
-
-export const BookBox = tw.div`
-  w-1/4
-  flex
-  flex-col
-  items-center
-`;
-
-export const BookCover = tw.img`
-  w-52
-  pb-3
-  drop-shadow-xl
-`;
-
-export const BookTitle = tw.p`
-  w-52
-  font-semibold
-  text-[#374151]
-  text-center
-`;
